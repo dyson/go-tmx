@@ -6,7 +6,7 @@ type xmlTemplate struct {
 	Object xmlObject `xml:"object"`
 }
 
-func (x xmlTemplate) toGroup() *Image {
+func (x xmlTemplate) toTemplate() *Image {
 	return &Template{
 		Name:   x.Name,
 		ID:     x.ID,
