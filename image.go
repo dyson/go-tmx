@@ -5,7 +5,7 @@ import (
 	"image/color"
 )
 
-// Image represents the source and properties of a image
+// Image represents the source and properties of an image
 type Image struct {
 	Format string
 	Source string
@@ -16,5 +16,8 @@ type Image struct {
 
 // String returns a string representation of this image
 func (i *Image) String() string {
-	return fmt.Sprintf("Image(Format=%q, Source=%q, Size=%dx%dpx)", i.Format, i.Source, i.Width, i.Height)
+	return fmt.Sprintf(
+		"Image(Format=%q, Source=%q, Size=%dx%dpx)",
+		i.Format, i.Source, i.Width, i.Height
+	)
 }
