@@ -7,6 +7,10 @@ import (
 // Layer represents a single map layer and all of it's tiles
 type Layer struct {
 	Name       string
+	X          int
+	Y          int
+	Width      int
+	Height     int
 	Opacity    float64
 	Visible    bool
 	OffsetX    int
@@ -28,7 +32,10 @@ type Layer struct {
 
 // String returns a string representation of this layer
 func (l *Layer) String() string {
-	return fmt.Sprintf("Layer(Name=%q, Opacity=%1.f, Visible=%v, OffsetX=%v, OffsetY=%v)", l.Name, l.Opacity, l.Visible, l.OffsetX, l.OffsetY)
+	return fmt.Sprintf(
+		"Layer(Name=%q, X=%d, Y=%d, Width=%d, Height=%d, Opacity=%1.f, Visible=%v, OffsetX=%d, OffsetY=%d)",
+		l.Name, l.X, l.Y, l.Width, l.Height, l.Opacity, l.Visible, l.OffsetX, l.OffsetY
+	)
 }
 
 // Coord represents a single 2D coordinate pair (x, y)
