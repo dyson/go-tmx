@@ -15,12 +15,12 @@ const (
 	// Flags representing horizontal, vertical, and diagonal tile flipping.
 	// These can be used in combination with gid's, like so:
 	//
-	// if (gid & FLIPPED_HORIZONTALLY_FLAG) > 0 {
+	// if (gid & flippedHorizontallyFlag) > 0 {
 	//     ...draw the tiled flipped horizontally...
 	// }
-	FLIPPED_HORIZONTALLY_FLAG uint32 = 0x80000000
-	FLIPPED_VERTICALLY_FLAG   uint32 = 0x40000000
-	FLIPPED_DIAGONALLY_FLAG   uint32 = 0x20000000
+	flippedHorizontallyFlag uint32 = 0x80000000
+	flippedVerticallyFlag   uint32 = 0x40000000
+	flippedDiagonallyFlag   uint32 = 0x20000000
 )
 
 type xmlTile struct {

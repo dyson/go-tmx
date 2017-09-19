@@ -146,7 +146,7 @@ func Parse(data []byte) (*Map, error) {
 	case "staggered":
 		orient = Staggered
 	default:
-		return nil, fmt.Errorf("unknown map orientation.")
+		return nil, fmt.Errorf("unknown map orientation")
 	}
 
 	// Find map properties

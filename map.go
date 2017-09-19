@@ -59,7 +59,7 @@ func (m *Map) String() string {
 //
 // If the global tile id is invalid this function will return nil.
 func (m *Map) FindTileset(gid uint32) *Tileset {
-	gid &^= (FLIPPED_HORIZONTALLY_FLAG | FLIPPED_VERTICALLY_FLAG | FLIPPED_DIAGONALLY_FLAG)
+	gid &^= (flippedHorizontallyFlag | flippedVerticallyFlag | flippedDiagonallyFlag)
 
 	for i := len(m.Tilesets) - 1; i >= 0; i-- {
 		ts := m.Tilesets[i]
@@ -75,7 +75,7 @@ func (m *Map) FindTileset(gid uint32) *Tileset {
 // If there is no tile definition for the given gid (can be common), or if the
 // global tile id is invalid this function will return nil.
 func (m *Map) TilesetTile(ts *Tileset, gid uint32) *Tile {
-	gid &^= (FLIPPED_HORIZONTALLY_FLAG | FLIPPED_VERTICALLY_FLAG | FLIPPED_DIAGONALLY_FLAG)
+	gid &^= (flippedHorizontallyFlag | flippedVerticallyFlag | flippedDiagonallyFlag)
 	id := int(gid - ts.Firstgid)
 	return ts.Tiles[id]
 }
@@ -89,7 +89,7 @@ func (m *Map) TilesetTile(ts *Tileset, gid uint32) *Tile {
 // If spacingAndMargins is true, then spacing and margins are applied to the
 // rectangle.
 func (m *Map) TilesetRect(ts *Tileset, width, height int, spacingAndMargins bool, gid uint32) image.Rectangle {
-	gid &^= (FLIPPED_HORIZONTALLY_FLAG | FLIPPED_VERTICALLY_FLAG | FLIPPED_DIAGONALLY_FLAG)
+	gid &^= (flippedHorizontallyFlag | flippedVerticallyFlag | flippedDiagonallyFlag)
 	id := int(gid - ts.Firstgid)
 	coord := toCoord(id, width/ts.Width, height/ts.Height)
 	var cx, cy int

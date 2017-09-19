@@ -33,10 +33,10 @@ type xmlData struct {
 }
 
 var (
-	// Error representing an unknown encoding method inside of a tmx file
+	// ErrBadEncoding error representing an unknown encoding method inside of a tmx file
 	ErrBadEncoding = errors.New("tile data encoding type is not supported")
 
-	// Error representing an unknown compression method inside of a tmx file
+	// ErrBadCompression error representing an unknown compression method inside of a tmx file
 	ErrBadCompression = errors.New("tile data compression type is not supported")
 )
 
