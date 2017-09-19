@@ -2,11 +2,12 @@ package tmx
 
 type xmlImage struct {
 	Format string `xml:"format,attr"`
-	// TODO: expose image <data> element for embedded image data ?
+	//ID deprecated
 	Source string `xml:"source,attr"`
 	Trans  string `xml:"trans,attr"`
 	Width  int    `xml:"width,attr"`
 	Height int    `xml:"height,attr"`
+	//Data not possible to create using Tiled
 }
 
 func (x xmlImage) toImage() *Image {
