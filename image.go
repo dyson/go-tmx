@@ -9,25 +9,6 @@ import (
 	"image/color"
 )
 
-type xmlImage struct {
-	Format string `xml:"format,attr"`
-	// TODO: expose image <data> element for embedded image data ?
-	Source string `xml:"source,attr"`
-	Trans  string `xml:"trans,attr"`
-	Width  int    `xml:"width,attr"`
-	Height int    `xml:"height,attr"`
-}
-
-func (x xmlImage) toImage() *Image {
-	return &Image{
-		Format: x.Format,
-		Source: x.Source,
-		Trans:  hexToRGBA(x.Trans),
-		Width:  x.Width,
-		Height: x.Height,
-	}
-}
-
 // Image represents the source and properties of a image
 type Image struct {
 	// Format of the embedded image data (if any).

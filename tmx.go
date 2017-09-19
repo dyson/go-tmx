@@ -65,23 +65,6 @@ func hexToRGBA(c string) color.RGBA {
 	return color.RGBA{r, g, b, 255}
 }
 
-type xmlProperty struct {
-	Name  string `xml:"name,attr"`
-	Value string `xml:"value,attr"`
-}
-
-type xmlProperties struct {
-	Property []xmlProperty `xml:"property"`
-}
-
-func (p xmlProperties) toMap() map[string]string {
-	m := make(map[string]string, len(p.Property))
-	for _, p := range p.Property {
-		m[p.Name] = p.Value
-	}
-	return m
-}
-
 type xmlTileoffset struct {
 	X int `xml:"x,attr"`
 	Y int `xml:"y,attr"`
@@ -94,20 +77,6 @@ type xmlTerrain struct {
 
 type xmlTerraintypes struct {
 	Terrain []xmlTerrain `xml:"terrain"`
-}
-
-type xmlMap struct {
-	Version         string           `xml:"version,attr"`
-	Orientation     string           `xml:"orientation,attr"`
-	Width           int              `xml:"width,attr"`
-	Height          int              `xml:"height,attr"`
-	TileWidth       int              `xml:"tilewidth,attr"`
-	TileHeight      int              `xml:"tileheight,attr"`
-	BackgroundColor string           `xml:"backgroundcolor,attr"`
-	Properties      xmlProperties    `xml:"properties"`
-	Tileset         []xmlTileset     `xml:"tileset"`
-	Layer           []xmlLayer       `xml:"layer"`
-	Objectgroup     []xmlObjectgroup `xml:"objectgroup"`
 }
 
 // Parse parses the TMX map file data and returns a *Map.
