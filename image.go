@@ -16,5 +16,5 @@ type Image struct {
 
 // String returns a string representation of this image
 func (i *Image) String() string {
-	return fmt.Sprintf("Image(Source=%q, Size=%dx%dpx)", i.Source, i.Width, i.Height)
+	return fmt.Sprintf("Image(Format=%q, Source=%q, Size=%dx%dpx)", i.Format, i.Source, i.Width, i.Height)
 }

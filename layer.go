@@ -28,7 +28,7 @@ type Layer struct {
 
 // String returns a string representation of this layer
 func (l *Layer) String() string {
-	return fmt.Sprintf("Layer(Name=%q, Opacity=%1.f, Visible=%v)", l.Name, l.Opacity, l.Visible)
+	return fmt.Sprintf("Layer(Name=%q, Opacity=%1.f, Visible=%v, OffsetX=%v, OffsetY=%v)", l.Name, l.Opacity, l.Visible, l.OffsetX, l.OffsetY)
 }
 
 // Coord represents a single 2D coordinate pair (x, y)
